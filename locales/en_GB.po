@@ -1,0 +1,103 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: UIHacks\n"
+"POT-Creation-Date: 2016-02-21 18:54+0100\n"
+"PO-Revision-Date: 2016-02-21 19:05+0100\n"
+"Last-Translator: Etienne <etienne-github@outlook.fr>\n"
+"Language-Team: Etiennef <etienne-github@outlook.fr>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-Basepath: ../.\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __:1,2t\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: inc/config.class.php:9
+msgid "Force ticket type choice"
+msgstr "Force ticket type choice"
+
+#: inc/config.class.php:20
+msgid "Message replacing category dropdown when type is not chosen yet"
+msgstr "Message replacing category dropdown when type is not chosen yet"
+
+#: inc/config.class.php:23
+msgid ""
+"You have to choose the ticket type before being allowed to chose a category"
+msgstr ""
+"You have to choose the ticket type before being allowed to chose a category"
+
+#: inc/config.class.php:27
+msgid "Force ticket urgency choice"
+msgstr "Force ticket urgency choice"
+
+#: inc/rule.class.php:27
+msgid "Do trick only for selected profiles"
+msgstr "Do trick only for selected profiles"
+
+#: inc/rule.class.php:38
+msgid "Target urls"
+msgstr "Target urls"
+
+#: inc/rule.class.php:39
+msgid "use a PHP regexp matching the pages you want to alter"
+msgstr "use a PHP regexp matching the pages you want to alter"
+
+#: inc/rule.class.php:50
+msgid "Selector"
+msgstr "Selector"
+
+#: inc/rule.class.php:51
+msgid ""
+"a CSS selector that will be able to targer exactly the items you want to "
+"alter"
+msgstr ""
+"a CSS selector that will be able to targer exactly the items you want to "
+"alter"
+
+#: inc/rule.class.php:66
+msgid "Add tooltip"
+msgstr "Add tooltip"
+
+#: inc/rule.class.php:67
+msgid ""
+"This tooltip will be added to the selected input. Leave empty for no tooltip."
+msgstr ""
+"This tooltip will be added to the selected input. Leave empty for no tooltip."
+
+#: inc/rule.class.php:78
+msgid "Disable"
+msgstr "Disable"
+
+#: inc/rule.class.php:83
+msgid ""
+"If yes is selected, this input will be disabled and the user won't be able "
+"to edit it. Keep in mind that it is only client-side modification, it has to "
+"be considered as a hint for the user not to edit this field, not a true "
+"right management. Also, if you disable fileds in creation forms, it may make "
+"the creation impossible."
+msgstr ""
+"If yes is selected, this input will be disabled and the user won't be able "
+"to edit it. Keep in mind that it is only client-side modification, it has to "
+"be considered as a hint for the user not to edit this field, not a true "
+"right management. Also, if you disable fileds in creation forms, it may make "
+"the creation impossible."
+
+#: inc/tabmerger.class.php:110 inc/tabmerger.class.php:147
+msgid "link type"
+msgstr "link type"
+
+#: inc/tabmerger.class.php:111 inc/tabmerger.class.php:148
+msgid "Ticket id"
+msgstr "Ticket id"
+
+#: setup.php:24
+msgid "Plugin has been tested only for GLPI 0.84.8"
+msgstr "Plugin has been tested only for GLPI 0.84.8"
+
+#: setup.php:30
+msgid "Plugin requires ConfigManager 1.0"
+msgstr "Plugin requires ConfigManager 1.0"

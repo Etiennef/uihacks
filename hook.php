@@ -8,11 +8,9 @@ function plugin_uihacks_install() {
 	include 'inc/config.class.php';
 	PluginUihacksConfig::install();
 
-	include 'inc/optionmodifrule.class.php';
-	PluginUihacksOptionmodifrule::install();
 	
-	include 'inc/inputmodifrule.class.php';
-	PluginUihacksInputmodifrule::install();
+	include 'inc/rule.class.php';
+	PluginUihacksRule::install();
 
 	return true;
 }
@@ -25,12 +23,9 @@ function plugin_uihacks_uninstall() {
 	include 'inc/config.class.php';
 	PluginUihacksConfig::uninstall();
 
-	include 'inc/optionmodifrule.class.php';
-	PluginUihacksOptionmodifrule::uninstall();
-	
-	include 'inc/inputmodifrule.class.php';
-	PluginUihacksInputmodifrule::uninstall();
-	
+
+	include 'inc/rule.class.php';
+	PluginUihacksRule::uninstall();
 	
 	return true;
 }

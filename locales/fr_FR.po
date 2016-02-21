@@ -1,0 +1,108 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: UIHacks\n"
+"POT-Creation-Date: 2016-02-21 18:55+0100\n"
+"PO-Revision-Date: 2016-02-21 19:05+0100\n"
+"Last-Translator: Etienne <etienne-github@outlook.fr>\n"
+"Language-Team: Etienne <etienne-glpi@outlook.fr>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-Basepath: ../.\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __:1,2t\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: inc/config.class.php:9
+msgid "Force ticket type choice"
+msgstr "Forcer le choix du type de ticket"
+
+#: inc/config.class.php:20
+msgid "Message replacing category dropdown when type is not chosen yet"
+msgstr ""
+"Message à afficher à la place du choix de la catégorie tant que le type "
+"n'est pas choisi"
+
+#: inc/config.class.php:23
+msgid ""
+"You have to choose the ticket type before being allowed to chose a category"
+msgstr "Vous devez choisir le type du ticket avant de choisir la catégorie"
+
+#: inc/config.class.php:27
+msgid "Force ticket urgency choice"
+msgstr "Forcer le choix de l'urgence des tickets"
+
+#: inc/rule.class.php:27
+msgid "Do trick only for selected profiles"
+msgstr "N'effectue la modification que pour les profils sélectionnés"
+
+#: inc/rule.class.php:38
+msgid "Target urls"
+msgstr "URL cibles"
+
+#: inc/rule.class.php:39
+msgid "use a PHP regexp matching the pages you want to alter"
+msgstr ""
+"une expression régulière PHP matchant les pages que vous voulez altérer"
+
+#: inc/rule.class.php:50
+msgid "Selector"
+msgstr "Sélecteur"
+
+#: inc/rule.class.php:51
+msgid ""
+"a CSS selector that will be able to targer exactly the items you want to "
+"alter"
+msgstr ""
+"un sélecteur CSS sélectionnant exactement les éléments de la page que vous "
+"voulez altérer"
+
+#: inc/rule.class.php:66
+msgid "Add tooltip"
+msgstr "Ajouter une info-bulle"
+
+#: inc/rule.class.php:67
+msgid ""
+"This tooltip will be added to the selected input. Leave empty for no tooltip."
+msgstr ""
+"Ce message sera ajouté en info-bulle aux élements modifiés. Laissez-le vide "
+"pour ne pas avoir d'info-bulle"
+
+#: inc/rule.class.php:78
+msgid "Disable"
+msgstr "Désactiver"
+
+#: inc/rule.class.php:83
+msgid ""
+"If yes is selected, this input will be disabled and the user won't be able "
+"to edit it. Keep in mind that it is only client-side modification, it has to "
+"be considered as a hint for the user not to edit this field, not a true "
+"right management. Also, if you disable fileds in creation forms, it may make "
+"the creation impossible."
+msgstr ""
+"Désactive les éléments trouvés par la règle. Les utilisateurs ne seront plus "
+"en mesure de les modifier.Gardez à l'esprit que ce n'est qu'une modification "
+"côté client, qui peut aisément être contournée. Il faut la considérer comme "
+"un pense-bête pour l'utilisateur lui indiquant de ne pas éditer ce champ, "
+"mais pas comme une vrai gestion de droits.Aussi, si vous désactivez des "
+"champs dans les formulaires de création, cela pourrait rendre la création de "
+"l'objet impossible."
+
+#: inc/tabmerger.class.php:110 inc/tabmerger.class.php:147
+msgid "link type"
+msgstr "type de lien"
+
+#: inc/tabmerger.class.php:111 inc/tabmerger.class.php:148
+msgid "Ticket id"
+msgstr "n° du ticket"
+
+#: setup.php:24
+msgid "Plugin has been tested only for GLPI 0.84.8"
+msgstr "Ce plugin n'a été testé que pour GLPI 0.84.8"
+
+#: setup.php:30
+msgid "Plugin requires ConfigManager 1.0"
+msgstr "Ce plugin requiert ConfigManager 1.0"
