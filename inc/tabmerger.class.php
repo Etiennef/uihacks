@@ -5,8 +5,9 @@ class PluginUihacksTabmerger extends PluginConfigmanagerTabmerger {
 		return array(
 			// '__.*' => 'html code',
 			// CommonGLPI => tabnum|'all',
-			'PluginUihacksConfig' => 0,
-			'PluginUihacksRule' => 0,
+			'PluginUihacksForcechoiceconfig' => 0,
+			'PluginUihacksEntityblockerrule' => 0,
+			'PluginUihacksTooltiprule' => 0,
 			'__cheat sheets' => self::makeCheatSheets(),
 		);
 	}
@@ -21,7 +22,7 @@ class PluginUihacksTabmerger extends PluginConfigmanagerTabmerger {
 		$output .= '<tr><td>Match standard ticket creation page</td><td>/^ticket\\.form\\.php(?!(\\?id=\\d+))/</td></tr>';
 		$output .= '<tr><td>Match ticket update form</td><td>/^ticket\\.form\\.php\\?id=\\d+/</td></tr>';
 		$output .= '<tr><td>Match both standard creation and ticket update forms</td><td>/^ticket\.form\.php/</td></tr>';
-		$output .= '<tr><td>Match all the ticket forms</td><td>^(helpdesk\.public\.php\?create_ticket=1|tracking\.injector\.php|ticket\.form\.php)</td></tr>';
+		$output .= '<tr><td>Match all the ticket forms</td><td>/^(helpdesk\.public\.php\?create_ticket=1|tracking\.injector\.php|ticket\.form\.php)/</td></tr>';
 		
 		$selectors = self::getSelectorsHelpdesk();
 		$output .= '<tbody id="uihacks_getSelectorsHelpdesk"><tr><th rowspan="'.(count($selectors)+1).'">Selectors for helpdesk form</th></tr>';

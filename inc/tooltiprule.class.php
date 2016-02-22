@@ -1,6 +1,6 @@
 <?php
 
-class PluginUihacksRule extends PluginConfigmanagerRule {
+class PluginUihacksTooltiprule extends PluginConfigmanagerRule {
 	protected static $inherit_order = array(self::TYPE_GLOBAL);
 	
 	static function makeConfigParams() {

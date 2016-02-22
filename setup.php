@@ -54,8 +54,9 @@ function plugin_init_uihacks() {
 	
 	$PLUGIN_HOOKS['add_javascript']['uihacks'] = 'scripts/uihacks.js.php';
 	
-	Plugin::registerClass('PluginUihacksConfig');
-	Plugin::registerClass('PluginUihacksRule');
+	Plugin::registerClass('PluginUihacksForcechoiceconfig');
+	Plugin::registerClass('PluginUihacksTooltiprule');
+	Plugin::registerClass('PluginUihacksEntityblockerrule');
 	Plugin::registerClass('PluginUihacksTabmerger', array('addtabon' => array(
 		'Profile',
 		'Config'

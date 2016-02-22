@@ -5,13 +5,15 @@
  * @return boolean
  */
 function plugin_uihacks_install() {
-	include 'inc/config.class.php';
-	PluginUihacksConfig::install();
-
+	include 'inc/forcechoiceconfig.class.php';
+	PluginUihacksForcechoiceconfig::install();
 	
-	include 'inc/rule.class.php';
-	PluginUihacksRule::install();
-
+	include 'inc/tooltiprule.class.php';
+	PluginUihacksTooltiprule::install();
+	
+	include 'inc/entityblockerrule.class.php';
+	PluginUihacksEntityblockerrule::install();
+	
 	return true;
 }
 
@@ -20,12 +22,14 @@ function plugin_uihacks_install() {
  * @return boolean
  */
 function plugin_uihacks_uninstall() {
-	include 'inc/config.class.php';
-	PluginUihacksConfig::uninstall();
+	include 'inc/forcechoiceconfig.class.php';
+	PluginUihacksForcechoiceconfig::uninstall();
 
-
-	include 'inc/rule.class.php';
-	PluginUihacksRule::uninstall();
+	include 'inc/tooltiprule.class.php';
+	PluginUihacksTooltiprule::uninstall();
+	
+	include 'inc/entityblockerrule.class.php';
+	PluginUihacksEntityblockerrule::uninstall();
 	
 	return true;
 }
