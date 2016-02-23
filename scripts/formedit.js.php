@@ -1,5 +1,5 @@
 <?php
-$jsRules = PluginUihacksTooltiprule::makeJsRules();
+$jsRules = PluginUihacksFormeditrule::makeJsRules();
 
 if(!empty($jsRules)) {
 ?>

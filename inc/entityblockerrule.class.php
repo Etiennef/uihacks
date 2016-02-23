@@ -31,39 +31,37 @@ class PluginUihacksEntityblockerrule extends PluginConfigmanagerRule {
 		}
 		
 		return array(
+			'_header' => array(
+				'type' => 'readonly text',
+				'text' => self::makeHeaderLine(__('Rules for ticket creation prevention based on entities', 'uihacks'))
+			),
 			'profiles' => array(
 				'type' => 'dropdown',
+				'maxlength' => 5000,
 				'text' => __('Profile'),
 				'values' => $profiles,
-				'dbtype' => 'varchar(2500)',
 				'default' => '[]',
-				'options' => array(
-					'multiple'=>true,
-					'size'=>5
-				)
+				'multiple'=>true,
+				'size'=>5
 			),
 			'entities' => array(
 				'type' => 'dropdown',
+				'maxlength' => 50000,
 				'text' => __('Blocked entities', 'uichacks'),
 				'values' => $entities,
-				'dbtype' => 'varchar(2500)',
 				'default' => '[]',
-				'options' => array(
-					'multiple'=>true,
-					'size'=>5
-				)
+				'multiple'=>true,
+				'size'=>5
 			),
 			'replacement' => array(
 				'type' => 'text area',
+				'maxlength' => 50000,
 				'text' => __('Replacement', 'uihacks'),
 				'tooltip' => __('This will replace the ticket creation forms. You can use HTLM code here.', 'uihacks'),
-				'dbtype' => 'varchar(50000)',
 				'default' => '<table class="tab_cadre_fixe"><tr><th>' . __('Ticket creation has been disabled here', 'uichacks') . '</th></tr></table>',
-				'options' => array(
-					'maxsize' => 50000,
-					'rows' => 10,
-					'cols' => 50
-				)
+				'maxsize' => 50000,
+				'rows' => 10,
+				'cols' => 50
 			)
 		);
 	}

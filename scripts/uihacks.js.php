@@ -4,6 +4,6 @@ header("Content-type: application/javascript");
 
 include 'forcechoice.js.php';
 include 'entityblocker.js.php';
-include 'tooltip.js.php';
+include 'formedit.js.php';
 
 ?>

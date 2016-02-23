@@ -8,8 +8,8 @@ function plugin_uihacks_install() {
 	include 'inc/forcechoiceconfig.class.php';
 	PluginUihacksForcechoiceconfig::install();
 	
-	include 'inc/tooltiprule.class.php';
-	PluginUihacksTooltiprule::install();
+	include 'inc/formeditrule.class.php';
+	PluginUihacksFormeditrule::install();
 	
 	include 'inc/entityblockerrule.class.php';
 	PluginUihacksEntityblockerrule::install();
@@ -25,8 +25,8 @@ function plugin_uihacks_uninstall() {
 	include 'inc/forcechoiceconfig.class.php';
 	PluginUihacksForcechoiceconfig::uninstall();
 
-	include 'inc/tooltiprule.class.php';
-	PluginUihacksTooltiprule::uninstall();
+	include 'inc/formeditrule.class.php';
+	PluginUihacksFormeditrule::uninstall();
 	
 	include 'inc/entityblockerrule.class.php';
 	PluginUihacksEntityblockerrule::uninstall();

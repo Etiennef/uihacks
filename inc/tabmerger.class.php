@@ -5,9 +5,9 @@ class PluginUihacksTabmerger extends PluginConfigmanagerTabmerger {
 		return array(
 			// '__.*' => 'html code',
 			// CommonGLPI => tabnum|'all',
-			'PluginUihacksForcechoiceconfig' => 0,
-			'PluginUihacksEntityblockerrule' => 0,
-			'PluginUihacksTooltiprule' => 0,
+			'PluginUihacksForcechoiceconfig' => 'all',
+			'PluginUihacksEntityblockerrule' => 'all',
+			'PluginUihacksFormeditrule' => 'all',
 			'__cheat sheets' => self::makeCheatSheets(),
 		);
 	}
