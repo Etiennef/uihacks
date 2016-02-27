@@ -1,14 +1,9 @@
 <?php
-$categoryMessage = __('Vous devez d\'abord choisir le type de ticket', 'uihacks');
-$sumbitErrorMessage = __('Le type et/ou l\'urgence du ticket n\'a pas été sélectionnée');
-
 $config = PluginUihacksForcechoiceconfig::getConfigValues();
 
 if($config['is_activated'] && 
 		isset($_SERVER['HTTP_REFERER']) &&
-		preg_match("/^([^\/]*\/)*(helpdesk\.public\.php\?create_ticket=1|tracking\.injector\.php|ticket\.form\.php(?!(\?id=\d+))).*/",
-			$_SERVER['HTTP_REFERER'])
-		) {
+		preg_match("/^([^\/]*\/)*(helpdesk\.public\.php\?create_ticket=1|tracking\.injector\.php|ticket\.form\.php(?!(\?id=\d+))).*/", $_SERVER['HTTP_REFERER']) ) {
 ?>
 	
 //<script>

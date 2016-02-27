@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: UIHacks\n"
-"POT-Creation-Date: 2016-02-21 18:54+0100\n"
-"PO-Revision-Date: 2016-02-21 19:05+0100\n"
+"POT-Creation-Date: 2016-02-27 16:08+0100\n"
+"PO-Revision-Date: 2016-02-27 16:08+0100\n"
 "Last-Translator: Etienne <etienne-github@outlook.fr>\n"
 "Language-Team: Etiennef <etienne-github@outlook.fr>\n"
 "Language: en_GB\n"
@@ -16,41 +16,91 @@ msgstr ""
 "X-Poedit-KeywordsList: __:1,2t\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: inc/config.class.php:9
-msgid "Force ticket type choice"
-msgstr "Force ticket type choice"
+#: inc/entityblockerrule.class.php:36
+msgid "Rules for ticket creation prevention based on entities"
+msgstr "Rules for ticket creation prevention based on entities"
 
-#: inc/config.class.php:20
+#: inc/entityblockerrule.class.php:50
+msgid "Blocked entities"
+msgstr "Blocked entities"
+
+#: inc/entityblockerrule.class.php:59
+msgid "Replacement"
+msgstr "Replacement"
+
+#: inc/entityblockerrule.class.php:60
+msgid ""
+"This will replace the ticket creation forms. You can use HTLM code here. You "
+"can use %%%ENTITY_BUTTON_(.*)%%% to insert a button leading to the entity "
+"change menu."
+msgstr ""
+"This will replace the ticket creation forms. You can use HTLM code here. You "
+"can use %%%ENTITY_BUTTON_(.*)%%% to insert a button leading to the entity "
+"change menu."
+
+#: inc/entityblockerrule.class.php:61
+msgid "Ticket creation has been disabled here"
+msgstr "Ticket creation has been disabled here"
+
+#: inc/entityblockerrule.class.php:61
+msgid "Click here to select an other entity"
+msgstr "Click here to select an other entity"
+
+#: inc/forcechoiceconfig.class.php:10
+msgid "Force explicit field selection on ticket creation"
+msgstr "Force explicit field selection on ticket creation"
+
+#: inc/forcechoiceconfig.class.php:16
+msgid "Force explicit type and urgency choice on ticket creation"
+msgstr "Force explicit type and urgency choice on ticket creation"
+
+#: inc/forcechoiceconfig.class.php:27
 msgid "Message replacing category dropdown when type is not chosen yet"
 msgstr "Message replacing category dropdown when type is not chosen yet"
 
-#: inc/config.class.php:23
+#: inc/forcechoiceconfig.class.php:28
 msgid ""
 "You have to choose the ticket type before being allowed to chose a category"
 msgstr ""
 "You have to choose the ticket type before being allowed to chose a category"
 
-#: inc/config.class.php:27
-msgid "Force ticket urgency choice"
-msgstr "Force ticket urgency choice"
+#: inc/forcechoiceconfig.class.php:34
+msgid ""
+"Error message when user tries to validate when not both type and category "
+"are chosen"
+msgstr ""
+"Error message when user tries to validate when not both type and category "
+"are chosen"
 
-#: inc/rule.class.php:27
+#: inc/forcechoiceconfig.class.php:35
+msgid ""
+"You have to choose the ticket type and urgency before being allowed to "
+"submit the ticket"
+msgstr ""
+"You have to choose the ticket type and urgency before being allowed to "
+"submit the ticket"
+
+#: inc/formeditrule.class.php:24
+msgid "Html form customisation rules"
+msgstr "Html form customisation rules"
+
+#: inc/formeditrule.class.php:30
 msgid "Do trick only for selected profiles"
 msgstr "Do trick only for selected profiles"
 
-#: inc/rule.class.php:38
+#: inc/formeditrule.class.php:39
 msgid "Target urls"
 msgstr "Target urls"
 
-#: inc/rule.class.php:39
+#: inc/formeditrule.class.php:40
 msgid "use a PHP regexp matching the pages you want to alter"
 msgstr "use a PHP regexp matching the pages you want to alter"
 
-#: inc/rule.class.php:50
+#: inc/formeditrule.class.php:48
 msgid "Selector"
 msgstr "Selector"
 
-#: inc/rule.class.php:51
+#: inc/formeditrule.class.php:49
 msgid ""
 "a CSS selector that will be able to targer exactly the items you want to "
 "alter"
@@ -58,21 +108,21 @@ msgstr ""
 "a CSS selector that will be able to targer exactly the items you want to "
 "alter"
 
-#: inc/rule.class.php:66
+#: inc/formeditrule.class.php:61
 msgid "Add tooltip"
 msgstr "Add tooltip"
 
-#: inc/rule.class.php:67
+#: inc/formeditrule.class.php:62
 msgid ""
 "This tooltip will be added to the selected input. Leave empty for no tooltip."
 msgstr ""
 "This tooltip will be added to the selected input. Leave empty for no tooltip."
 
-#: inc/rule.class.php:78
+#: inc/formeditrule.class.php:70
 msgid "Disable"
 msgstr "Disable"
 
-#: inc/rule.class.php:83
+#: inc/formeditrule.class.php:75
 msgid ""
 "If yes is selected, this input will be disabled and the user won't be able "
 "to edit it. Keep in mind that it is only client-side modification, it has to "
@@ -86,11 +136,11 @@ msgstr ""
 "right management. Also, if you disable fileds in creation forms, it may make "
 "the creation impossible."
 
-#: inc/tabmerger.class.php:110 inc/tabmerger.class.php:147
+#: inc/tabmerger.class.php:108 inc/tabmerger.class.php:145
 msgid "link type"
 msgstr "link type"
 
-#: inc/tabmerger.class.php:111 inc/tabmerger.class.php:148
+#: inc/tabmerger.class.php:109 inc/tabmerger.class.php:146
 msgid "Ticket id"
 msgstr "Ticket id"
 
@@ -98,6 +148,6 @@ msgstr "Ticket id"
 msgid "Plugin has been tested only for GLPI 0.84.8"
 msgstr "Plugin has been tested only for GLPI 0.84.8"
 
-#: setup.php:30
-msgid "Plugin requires ConfigManager 1.0"
-msgstr "Plugin requires ConfigManager 1.0"
+#: setup.php:30 setup.php:35
+msgid "Plugin requires ConfigManager 1.x.x"
+msgstr "Plugin requires ConfigManager 1.x.x"

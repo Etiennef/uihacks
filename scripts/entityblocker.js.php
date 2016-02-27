@@ -1,6 +1,6 @@
 <?php
 $replacement = PluginUihacksEntityblockerrule::getApplicableReplacement();
-
+//TODO test
 
 if($replacement !== false) {
 ?>

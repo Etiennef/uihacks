@@ -57,8 +57,8 @@ class PluginUihacksEntityblockerrule extends PluginConfigmanagerRule {
 				'type' => 'text area',
 				'maxlength' => 50000,
 				'text' => __('Replacement', 'uihacks'),
-				'tooltip' => __('This will replace the ticket creation forms. You can use HTLM code here.', 'uihacks'),
-				'default' => '<table class="tab_cadre_fixe"><tr><th>' . __('Ticket creation has been disabled here', 'uichacks') . '</th></tr></table>',
+				'tooltip' => __('This will replace the ticket creation forms. You can use HTLM code here. You can use %%%ENTITY_BUTTON_(.*)%%% to insert a button leading to the entity change menu.', 'uihacks'),
+				'default' => '<table class="tab_cadre_fixe"><tr><th>' . __('Ticket creation has been disabled here', 'uihacks') . '</th></tr><tr><td class=center>%%%ENTITY_BUTTON_' . __('Click here to select an other entity', 'uihacks') . '%%%</td></tr></table>',
 				'maxsize' => 50000,
 				'rows' => 10,
 				'cols' => 50
@@ -87,7 +87,7 @@ class PluginUihacksEntityblockerrule extends PluginConfigmanagerRule {
 			$replacement = Toolbox::unclean_html_cross_side_scripting_deep(str_replace(array("\r", "\n"), '', $rule['replacement']));
 			
 			// Remplace le schéma %%%ENTITY_BUTTON_(.*)%%% par le code html permettant d'afficher le bouton de sélection du profil
-			$replacement = preg_replace('/%%%ENTITY_BUTTON_(.*)%%%/', '<a onclick="entity_window.show();" href="#modal_entity_content" class="entity_select" id="global_entity_select_uichacks">$1</a>', $replacement);
+			$replacement = preg_replace('/%%%ENTITY_BUTTON_(.*)%%%/', '<a onclick="entity_window.show();" href="#modal_entity_content" class="entity_select">$1</a>', $replacement);
 			
 			return $replacement;
 		}

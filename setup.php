@@ -7,7 +7,7 @@
 function plugin_version_uihacks() {
 	return array(
 		'name' => "UI Hacks",
-		'version' => '0.1.0',
+		'version' => '1.0.0',
 		'author' => 'Etiennef',
 		'license' => 'GPLv2+',
 		'homepage' => 'https://github.com/Etiennef/uihacks',
@@ -27,7 +27,12 @@ function plugin_uihacks_check_prerequisites() {
 	
 	//Vérifie la présence de ConfigManager
 	if(!(new Plugin())->isActivated('configmanager')) {
-		echo __("Plugin requires ConfigManager 1.0", 'uihacks');
+		echo __("Plugin requires ConfigManager 1.x.x", 'uihacks');
+		return false;
+	}
+	$configmanager_version = Plugin::getInfo('configmanager', 'version');
+	if(version_compare($configmanager_version, '1.0.0', 'lt') || version_compare($configmanager_version, '2.0.0', 'ge')) {
+		echo __("Plugin requires ConfigManager 1.x.x", 'uihacks');
 		return false;
 	}
 	

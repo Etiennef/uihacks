@@ -7,6 +7,7 @@ if(!empty($jsRules)) {
 //<script>
 Ext.onReady(function() {
 	var rules = <?php echo json_encode($jsRules);?>;
+	var disableButtonStyle = 'cursor: not-allowed; color: #b0b0b0; background-image: linear-gradient(to bottom, #d0d0d0, #c0c0c0); text-shadow: unset; border: 1px solid #b0b0b0;';
 	
 	rules.forEach(function(rule) {
 		doUntilSuccess(function() {
@@ -30,6 +31,10 @@ Ext.onReady(function() {
 
 		for(var i = 0 ; i < elements.length ; i++) {
 			var el = elements[i];
+
+			if(tooltip) { 
+				el.setAttribute('title', tooltip);
+			}
 			
 			if(el.id.match(/showdate(\d+)/)) {
 				// il s'agit d'une date
@@ -49,32 +54,28 @@ Ext.onReady(function() {
 				if(tooltip) {
 					el.parentNode.setAttribute('title', tooltip);
 				}
-			} else if(el.tagName === 'A' && disable) {
-				// il s'agit d'un lien (éventuellement en forme de bouton) à désactiver
-				var p = document.createElement('p');
-				p.innerHTML = el.innerHTML;
-				el.parentNode.insertBefore(p, el);
-				el.remove();
-				if(tooltip) {
-					p.setAttribute('title', tooltip);
-				}
-			} else {
-				if(el.tagName === 'SELECT') {
-					// on retire (s'il existe) le champ de recherche associé au dropdown
-					//TODO : ne marche pas forcément
-					var name = selector.match('select\\[name="(.*)"\\]')[1];
+			} else if(el.tagName === 'A') { // il s'agit d'un lien
+				if(disable) {
+					el.removeAttribute('onclick');
+					el.removeAttribute('href');
 
-					if(el.id.match('dropdown_'+name+'(\\d+)')) {
-						var search = document.querySelector('#search_'+el.id.match('dropdown_'+name+'(\\d+)')[1]);
-						if(search) search.remove();
+					// Si c'est un bouton, on lui donne le look bouton désactivé
+					if(el.classList.contains('vsubmit')) {
+						el.setAttribute('style', disableButtonStyle);
 					}
 				}
+			} else if(disable) {
+				el.setAttribute('disabled', '');
 				
-				if(disable) {
-					el.setAttribute('disabled', '');
-				}
-				if(tooltip) {
-					el.setAttribute('title', tooltip);
+				if(el.tagName === 'SELECT' && el.name) {
+					// on retire (s'il existe) le champ de recherche associé au dropdown
+					if(el.id.match('dropdown_'+el.name+'(\\d+)')) {
+						var search = document.querySelector('#search_'+el.id.match('dropdown_'+el.name+'(\\d+)')[1]);
+						if(search) search.remove();
+					}
+				} else if(el.tagName === 'INPUT' && el.type === 'submit') {
+					// si c'est un bouton on lui donne le look bouton désactivé
+					el.setAttribute('style', disableButtonStyle);
 				}
 			}
 		}
