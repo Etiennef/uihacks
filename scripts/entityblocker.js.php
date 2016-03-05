@@ -1,29 +1,28 @@
 <?php
 $replacement = PluginUihacksEntityblockerrule::getApplicableReplacement();
-//TODO test
 
 if($replacement !== false) {
 ?>
 
 //<script>
 
-Ext.onReady(function() {
-	var form = document.querySelector('form[name="form_ticket"]') ||
-			document.querySelector('form[name="helpdeskform"]');
+$(function() {
+   var initialized=false;
+   $(document).ajaxComplete(maskForm);
+   maskForm();
 
-	// Cache tout ce qui est dans la form
-	for(i=0 ; i<form.childNodes.length ; i++) {
-		form.childNodes[i].setAttribute('style', 'display:none');
-	}
+   function maskForm() {
+      if(initialized) return;
+      var form = $('form[name="form_ticket"], form[name="helpdeskform"]');
+      if(form.length === 0) return;
+      initialized = true;
 
-	// ajoute le message
-	var div = document.createElement('div');
-	div.innerHTML = '<?php echo addslashes($replacement);?>';
-	form.appendChild(div);
+      form.children().remove();
+      form.append('<?php echo addslashes($replacement);?>');
+   }
 });
-
 // </script>
 
-<?php 
+<?php
 }
 ?>

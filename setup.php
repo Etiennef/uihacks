@@ -5,14 +5,14 @@
  * @return array description du plugin
  */
 function plugin_version_uihacks() {
-	return array(
-		'name' => "UI Hacks",
-		'version' => '1.0.0',
-		'author' => 'Etiennef',
-		'license' => 'GPLv2+',
-		'homepage' => 'https://github.com/Etiennef/uihacks',
-		'minGlpiVersion' => '0.84' 
-	);
+   return array(
+      'name' => "UI Hacks",
+      'version' => '1.0.0',
+      'author' => 'Etiennef',
+      'license' => 'GPLv2+',
+      'homepage' => 'https://github.com/Etiennef/uihacks',
+      'minGlpiVersion' => '0.84'
+   );
 }
 
 /**
@@ -20,23 +20,24 @@ function plugin_version_uihacks() {
  * @return boolean le plugin peut s'exécuter sur ce GLPI
  */
 function plugin_uihacks_check_prerequisites() {
-	if(version_compare(GLPI_VERSION, '0.84.8', 'lt') || version_compare(GLPI_VERSION, '0.85', 'ge')) {
-		echo __("Plugin has been tested only for GLPI 0.84.8", 'uihacks');
-		return false;
-	}
-	
-	//Vérifie la présence de ConfigManager
-	if(!(new Plugin())->isActivated('configmanager')) {
-		echo __("Plugin requires ConfigManager 1.x.x", 'uihacks');
-		return false;
-	}
-	$configmanager_version = Plugin::getInfo('configmanager', 'version');
-	if(version_compare($configmanager_version, '1.0.0', 'lt') || version_compare($configmanager_version, '2.0.0', 'ge')) {
-		echo __("Plugin requires ConfigManager 1.x.x", 'uihacks');
-		return false;
-	}
-	
-	return true;
+   //TODO real version
+   if(version_compare(GLPI_VERSION, '0.84.8', 'lt') || version_compare(GLPI_VERSION, '0.92', 'ge')) {
+      echo __("Plugin has been tested only for GLPI 0.84.8", 'uihacks');
+      return false;
+   }
+
+   //Vérifie la présence de ConfigManager
+   if(!(new Plugin())->isActivated('configmanager')) {
+      echo __("Plugin requires ConfigManager 1.x.x", 'uihacks');
+      return false;
+   }
+   $configmanager_version = Plugin::getInfo('configmanager', 'version');
+   if(version_compare($configmanager_version, '1.0.0', 'lt') || version_compare($configmanager_version, '2.0.0', 'ge')) {
+      echo __("Plugin requires ConfigManager 1.x.x", 'uihacks');
+      return false;
+   }
+
+   return true;
 }
 
 /**
@@ -45,7 +46,7 @@ function plugin_uihacks_check_prerequisites() {
  * @return boolean la config est faite
  */
 function plugin_uihacks_check_config($verbose = false) {
-	return true;
+   return true;
 }
 
 /**
@@ -53,25 +54,25 @@ function plugin_uihacks_check_config($verbose = false) {
  * @global array $PLUGIN_HOOKS
  */
 function plugin_init_uihacks() {
-	global $PLUGIN_HOOKS;
-	
-	$PLUGIN_HOOKS['csrf_compliant']['uihacks'] = true;
-	
-	$PLUGIN_HOOKS['add_javascript']['uihacks'] = 'scripts/uihacks.js.php';
-	
-	Plugin::registerClass('PluginUihacksForcechoiceconfig');
-	Plugin::registerClass('PluginUihacksFormeditrule');
-	Plugin::registerClass('PluginUihacksEntityblockerrule');
-	Plugin::registerClass('PluginUihacksTabmerger', array('addtabon' => array(
-		'Profile',
-		'Config'
-	)));
-	
-	if((new Plugin())->isActivated('uihacks')) {
-		$PLUGIN_HOOKS['config_page']['uihacks'] = "../../front/config.form.php?forcetab=" . urlencode('PluginUihacksTabmerger$1');
-	}
-	
-	
+   global $PLUGIN_HOOKS;
+
+   $PLUGIN_HOOKS['csrf_compliant']['uihacks'] = true;
+
+   $PLUGIN_HOOKS['add_javascript']['uihacks'] = 'scripts/uihacks.js.php';
+
+   Plugin::registerClass('PluginUihacksForcechoiceconfig');
+   Plugin::registerClass('PluginUihacksFormeditrule');
+   Plugin::registerClass('PluginUihacksEntityblockerrule');
+   Plugin::registerClass('PluginUihacksTabmerger', array('addtabon' => array(
+      'Profile',
+      'Config'
+   )));
+
+   if((new Plugin())->isActivated('uihacks')) {
+      $PLUGIN_HOOKS['config_page']['uihacks'] = "../../front/config.form.php?forcetab=" . urlencode('PluginUihacksTabmerger$1');
+   }
+
+
 }
 
 
