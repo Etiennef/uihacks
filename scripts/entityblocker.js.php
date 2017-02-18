@@ -1,28 +1,30 @@
 <?php
-$replacement = PluginUihacksEntityblockerrule::getApplicableReplacement();
+include ("../../../inc/includes.php");
+header("Content-type: application/javascript");
 
-if($replacement !== false) {
-?>
 
-//<script>
+if(isset($_SERVER['HTTP_REFERER']) &&
+        preg_match("/^([^\/]*\/)*(helpdesk\.public\.php\?create_ticket=1|tracking\.injector\.php|ticket\.form\.php(?!(\?id=\d+))).*/", $_SERVER['HTTP_REFERER'])) {
+    $replacement = PluginUihacksEntityblockerrule::getApplicableReplacement();
 
-$(function() {
-   var initialized=false;
-   $(document).ajaxComplete(maskForm);
-   maskForm();
+    if($replacement !== false) {
+    ?>
 
-   function maskForm() {
-      if(initialized) return;
-      var form = $('form[name="form_ticket"], form[name="helpdeskform"]');
-      if(form.length === 0) return;
-      initialized = true;
+    //<script>
 
-      form.children().remove();
-      form.append('<?php echo addslashes($replacement);?>');
-   }
-});
-// </script>
+    $(function() {
+        var form = $('form[name="form_ticket"], form[name="helpdeskform"]');
 
-<?php
+        // Replace form with message
+        var div = $('<div/>');
+        div.html('<?php echo addslashes($replacement);?>');
+        form.replaceWith(div);
+
+    });
+
+    // </script>
+
+    <?php
+    }
 }
 ?>

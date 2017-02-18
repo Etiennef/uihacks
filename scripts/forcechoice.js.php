@@ -1,89 +1,75 @@
 <?php
+include ("../../../inc/includes.php");
+header("Content-type: application/javascript");
 $config = PluginUihacksForcechoiceconfig::getConfigValues();
 
-if($config['is_activated'] &&
-      isset($_SERVER['HTTP_REFERER']) &&
-      preg_match("/^([^\/]*\/)*(helpdesk\.public\.php\?create_ticket=1|tracking\.injector\.php|ticket\.form\.php(?!(\?id=\d+))).*/", $_SERVER['HTTP_REFERER']) ) {
+if($config['is_activated_for_type'] || $config['is_activated_for_urgency']) {
 ?>
 
 //<script>
-$(function() {
-   var initialized = false;
-   $(document).ajaxComplete(forceChoice);
-   forceChoice();
+Ext.onReady(function() {
+    var config = {
+          forcetype : <?php echo $config['is_activated_for_type'] ? 'true' : 'false' ?>,
+          forceurgency : <?php echo $config['is_activated_for_urgency'] ? 'true' : 'false' ?>,
+      };
+    var form = $('form[name="form_ticket"], form[name="helpdeskform"]');
+    var dd_type = form.find('select[name="type"]');
+    var dd_urgency = form.find('select[name="urgency"]');
+    var uihState = parseQuery().uihstate || '00';
 
-   function forceChoice() {
-      if(initialized) return;
-      var form = $('form[name="form_ticket"], form[name="helpdeskform"]');
-      if(form.length === 0) return;
-      initialized = true;
+    if(uihState.charAt(0) === '0' && config.forcetype) {
+        dd_type.find('[selected]').removeAttr('selected');
+        dd_type.prepend('<option value="-1" selected="">-----</option>');
 
-      var dd_type = form.find('select[name="type"]');
-      var dd_urgency = form.find('select[name="urgency"]');
-      var uihState = parseQuery().uihstate || '00';
+        form.find('select[name="itilcategories_id"]').parent().parent()
+                .html('<?php echo addslashes($config['category_msg']);?>');
+    }
 
-      form.submit(uihacksSubmit);
+    if(uihState.charAt(1) === '0' && config.forceurgency) {
+        dd_urgency.find('[selected]').removeAttr('selected');
+        dd_urgency.prepend('<option value="-1" selected="">-----</option>');
+    }
 
-      if(uihState.charAt(0) === '0') {
-         dd_type.removeAttr('onchange');
-         html = '<option value="-1" selected="">-----</option>'+dd_type.html().replace('selected=""', '');
-         dd_type
-            .html(html)
-            .change();
-            .change(function(){
-               refreshSubmitAction();
-               this.form.submit();
-            });
+    form.find('[onchange="submit()"]')
+        .removeAttr('onchange')
+        .change(uihacksOnchange)
+        .attr('onchange', 'submit()');
 
-         form.find('input[name="itilcategories_id"]').closest('td').html('<?php echo addslashes($config['category_msg']);?>');
+    form.submit(uihacksSubmit);
 
-      }
+    /****************************
+     *        Fonctions            *
+     ****************************/
 
-      if(uihState.charAt(1) === '0') {
-         html = '<option value="-1" selected="">-----</option>'+dd_urgency.html().replace('selected=""', '');
-         dd_urgency
-            .html(html)
-            .change();
-            .change(refreshSubmitAction);
-      }
+    function makeUihacksState() {
+        return ((dd_type.val() == -1 && config.forcetype)?'0':'1') +
+        ((dd_urgency.val() == -1 && config.forceurgency)?'0':'1');
+    }
 
-      refreshSubmitAction();
+    function uihacksOnchange() {
+        //console.log('uihacksOnchange()');
+        form.attr('action', form.attr('action') + (/\?/.test(form.action) ? '&' : '?') + 'uihstate=' + makeUihacksState());
+    }
 
-
-      /****************************
-       *      Fonctions         *
-       ****************************/
-
-      function makeUihacksState() {
-         return ((dd_type.val() == -1)?'0':'1') + ((dd_urgency.val() == -1)?'0':'1');
-      }
-
-      var savedAction = form.attr('action') + (/\?/.test(form.action) ? '&' : '?');
-      function refreshSubmitAction() {
-         form.attr('action', savedAction + 'uihstate=' + makeUihacksState());
-      }
-
-      function uihacksSubmit() {
-         if(makeUihacksState() === '11') {
+    function uihacksSubmit() {
+        //console.log('uihacksSubmit()');
+        if(makeUihacksState() === '11') {
             return true;
-         } else {
+        } else {
             alert('<?php echo addslashes($config['bad_submit_msg']);?>');
             return false;
-         }
-      }
+        }
+    }
 
-      function parseQuery() {
-         var result = {},
-         tmp = [];
-         location.search.substr(1).split("&").forEach(function (item) {
+    function parseQuery() {
+        var result = {},
+        tmp = [];
+        location.search.substr(1).split("&").forEach(function (item) {
             tmp = item.split("=");
             result[tmp[0]] = tmp[1];
-         });
-         return result;
-      }
-   }
-
-
+        });
+        return result;
+    }
 });
 //</script>
 <?php

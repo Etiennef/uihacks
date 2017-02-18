@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: UIHacks\n"
-"POT-Creation-Date: 2016-02-27 16:08+0100\n"
-"PO-Revision-Date: 2016-02-27 16:08+0100\n"
+"POT-Creation-Date: 2017-02-05 20:49+0100\n"
+"PO-Revision-Date: 2017-02-05 20:49+0100\n"
 "Last-Translator: Etienne <etienne-github@outlook.fr>\n"
 "Language-Team: Etiennef <etienne-github@outlook.fr>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.6\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-Basepath: ../.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -51,20 +51,24 @@ msgid "Force explicit field selection on ticket creation"
 msgstr "Force explicit field selection on ticket creation"
 
 #: inc/forcechoiceconfig.class.php:16
-msgid "Force explicit type and urgency choice on ticket creation"
-msgstr "Force explicit type and urgency choice on ticket creation"
+msgid "Force explicit type choice on ticket creation"
+msgstr "Force explicit type choice on ticket creation"
 
 #: inc/forcechoiceconfig.class.php:27
+msgid "Force explicit urgency choice on ticket creation"
+msgstr "Force explicit urgency choice on ticket creation"
+
+#: inc/forcechoiceconfig.class.php:38
 msgid "Message replacing category dropdown when type is not chosen yet"
 msgstr "Message replacing category dropdown when type is not chosen yet"
 
-#: inc/forcechoiceconfig.class.php:28
+#: inc/forcechoiceconfig.class.php:39
 msgid ""
 "You have to choose the ticket type before being allowed to chose a category"
 msgstr ""
 "You have to choose the ticket type before being allowed to chose a category"
 
-#: inc/forcechoiceconfig.class.php:34
+#: inc/forcechoiceconfig.class.php:45
 msgid ""
 "Error message when user tries to validate when not both type and category "
 "are chosen"
@@ -72,7 +76,7 @@ msgstr ""
 "Error message when user tries to validate when not both type and category "
 "are chosen"
 
-#: inc/forcechoiceconfig.class.php:35
+#: inc/forcechoiceconfig.class.php:46
 msgid ""
 "You have to choose the ticket type and urgency before being allowed to "
 "submit the ticket"
@@ -122,19 +126,47 @@ msgstr ""
 msgid "Disable"
 msgstr "Disable"
 
+#: inc/formeditrule.class.php:73
+msgid "Disabled but visible"
+msgstr "Disabled but visible"
+
+#: inc/formeditrule.class.php:74
+msgid "Converted to simple text"
+msgstr "Converted to simple text"
+
 #: inc/formeditrule.class.php:75
+msgid "Hidden"
+msgstr "Hidden"
+
+#: inc/formeditrule.class.php:76
+msgid "Hidden, and siblings hidden too"
+msgstr "Hidden, and siblings hidden too"
+
+#: inc/formeditrule.class.php:77
+msgid "Parent is hidden"
+msgstr "Parent is hidden"
+
+#: inc/formeditrule.class.php:78
+msgid "Great-parent is hidden"
+msgstr "Great-parent is hidden"
+
+#: inc/formeditrule.class.php:79
+msgid "Great-great-parent is hidden"
+msgstr "Great-great-parent is hidden"
+
+#: inc/formeditrule.class.php:81
 msgid ""
-"If yes is selected, this input will be disabled and the user won't be able "
-"to edit it. Keep in mind that it is only client-side modification, it has to "
-"be considered as a hint for the user not to edit this field, not a true "
-"right management. Also, if you disable fileds in creation forms, it may make "
-"the creation impossible."
+"If anything but no is selected, this input will be disabled and the user "
+"won't be able to edit it. Keep in mind that it is only client-side "
+"modification, it has to be considered as a hint for the user not to edit "
+"this field, not a true right management. Also, if you disable fileds in "
+"creation forms, it may make the creation impossible."
 msgstr ""
-"If yes is selected, this input will be disabled and the user won't be able "
-"to edit it. Keep in mind that it is only client-side modification, it has to "
-"be considered as a hint for the user not to edit this field, not a true "
-"right management. Also, if you disable fileds in creation forms, it may make "
-"the creation impossible."
+"If anything but no is selected, this input will be disabled and the user "
+"won't be able to edit it. Keep in mind that it is only client-side "
+"modification, it has to be considered as a hint for the user not to edit "
+"this field, not a true right management. Also, if you disable fileds in "
+"creation forms, it may make the creation impossible."
 
 #: inc/tabmerger.class.php:108 inc/tabmerger.class.php:145
 msgid "link type"
@@ -151,3 +183,19 @@ msgstr "Plugin has been tested only for GLPI 0.84.8"
 #: setup.php:30 setup.php:35
 msgid "Plugin requires ConfigManager 1.x.x"
 msgstr "Plugin requires ConfigManager 1.x.x"
+
+#~ msgid "Force explicit type and urgency choice on ticket creation"
+#~ msgstr "Force explicit type and urgency choice on ticket creation"
+
+#~ msgid ""
+#~ "If yes is selected, this input will be disabled and the user won't be "
+#~ "able to edit it. Keep in mind that it is only client-side modification, "
+#~ "it has to be considered as a hint for the user not to edit this field, "
+#~ "not a true right management. Also, if you disable fileds in creation "
+#~ "forms, it may make the creation impossible."
+#~ msgstr ""
+#~ "If yes is selected, this input will be disabled and the user won't be "
+#~ "able to edit it. Keep in mind that it is only client-side modification, "
+#~ "it has to be considered as a hint for the user not to edit this field, "
+#~ "not a true right management. Also, if you disable fileds in creation "
+#~ "forms, it may make the creation impossible."
