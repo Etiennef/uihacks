@@ -4,27 +4,26 @@ header("Content-type: application/javascript");
 
 
 if(isset($_SERVER['HTTP_REFERER']) &&
-        preg_match("/^([^\/]*\/)*(helpdesk\.public\.php\?create_ticket=1|tracking\.injector\.php|ticket\.form\.php(?!(\?id=\d+))).*/", $_SERVER['HTTP_REFERER'])) {
-    $replacement = PluginUihacksEntityblockerrule::getApplicableReplacement();
+      preg_match("/^([^\/]*\/)*(helpdesk\.public\.php\?create_ticket=1|tracking\.injector\.php|ticket\.form\.php(?!(\?id=\d+))).*/", $_SERVER['HTTP_REFERER'])) {
+   $replacement = PluginUihacksEntityblockerrule::getApplicableReplacement();
 
-    if($replacement !== false) {
-    ?>
+   if($replacement !== false) {
+   ?>
 
-    //<script>
+   //<script>
 
-    $(function() {
-        var form = $('form[name="form_ticket"], form[name="helpdeskform"]');
+   $(function() {
+      var form = $('form[name="form_ticket"], form[name="helpdeskform"]');
 
-        // Replace form with message
-        var div = $('<div/>');
-        div.html('<?php echo addslashes($replacement);?>');
-        form.replaceWith(div);
+      // Replace form with message
+      var div = $('<div/>');
+      div.html('<?php echo addslashes($replacement);?>');
+      form.replaceWith(div);
 
-    });
+   });
 
-    // </script>
+   // </script>
 
-    <?php
-    }
+   <?php
+   }
 }
-?>
